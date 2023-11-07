@@ -1,0 +1,2 @@
+DEBUG = False
+ALLOWED_HOSTS = ['43.200.108.232']
