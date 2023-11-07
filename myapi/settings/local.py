@@ -1,4 +1,5 @@
-DEBUG = True
+from .base import *
+
 ALLOWED_HOSTS = []
 
 
