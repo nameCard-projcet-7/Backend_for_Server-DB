@@ -10,18 +10,6 @@ import openai
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
-
-def test_for_makeing_json_from_dict():
-	dict_example = {
-		"company" : "fucking",
-		"name" : "Lee",
-		"role" : "학생",
-		"phonenumber" : "010-1234-1234",
-		"address" : "wherever",
-		"email" : "whatever",
-	}
-	return json.dumps(dict_example)
-
 def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 	if type(image) == np.ndarray:
 		color_converted = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -42,7 +30,7 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 
 def get_result():
 	# OpenAI API 키 설정
-	api_key = "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"
+	api_key = "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"
 	openai.api_key = api_key
 	
 	# 이미지가 있는 폴더 경로 설정
