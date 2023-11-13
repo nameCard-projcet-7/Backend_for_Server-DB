@@ -8,4 +8,8 @@ class Namecard(models.Model):
 	PhoneNumber = models.CharField(max_length=50)
 	Address = models.CharField(max_length=50)
 	Email = models.CharField(max_length=50)
-	
+
+class Post(models.Model):
+	title = models.CharField(max_length=200)
+	text = models.TextField()
+	image = models.ImageField(blank=True, null=True, upload_to='images')
