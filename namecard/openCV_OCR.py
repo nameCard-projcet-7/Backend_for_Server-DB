@@ -30,7 +30,7 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 
 def get_result():
 	# OpenAI API 키 설정
-	api_key = "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"
+	api_key = "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"
 	openai.api_key = api_key
 	
 	# 이미지가 있는 폴더 경로 설정
