@@ -16,11 +16,11 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 		image = Image.fromarray(color_converted)
 	
 	if platform.system() == 'Darwin':
-		font = 'AppleGothic.ttf'
+		font_name = 'AppleGothic.ttf'
 	elif platform.system() == 'Windows':
-		font = 'malgun.ttf'
+		font_name = 'malgun.ttf'
 	
-	image_font = ImageFont.truetype(font, font_size)
+	image_font = ImageFont.truetype(font_name, font_size)
 	draw = ImageDraw.Draw(image)
 	draw.text((x, y), text, font=image_font, fill=color)
 	
