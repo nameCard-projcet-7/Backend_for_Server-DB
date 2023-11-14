@@ -39,7 +39,7 @@ def get_result():
 	openai.api_key = api_key
 	
 	# 이미지가 있는 폴더 경로 설정
-	image_folder = '/Users/idogyeong/Desktop/명함 사진2'
+	image_folder = './media/images/'
 	
 	# 이미지 폴더에서 모든 이미지 파일 가져오기
 	list_of_files = glob.glob(os.path.join(image_folder, '*.*'))
