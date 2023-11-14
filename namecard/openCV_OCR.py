@@ -35,13 +35,13 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 
 def get_result():
 	# OpenAI API 키 설정
-	api_key = "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"
+	api_key = "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"
 	openai.api_key = api_key
 	
 	# 이미지가 있는 폴더 경로 설정
 	image_folder = './media/images/'
 	
-	# 이미지 폴더에서 모든 이미지 파일 가져오기
+	# 이미지 폴더에서 모든 이미지 파일 가져오기s
 	list_of_files = glob.glob(os.path.join(image_folder, '*.*'))
 	
 	# 가장 최신 파일 선택 (파일의 생성시간을 기준으로)
