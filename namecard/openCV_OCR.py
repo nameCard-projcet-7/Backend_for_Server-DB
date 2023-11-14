@@ -20,7 +20,7 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 	elif platform.system() == 'Windows':
 		font_path = 'C:\\Windows\\Fonts\\malgun.ttf'
 	else:
-		font_path = '/usr/share/fonts/truetype.nanum.ttf'
+		font_path = '/usr/share/fonts/truetype/nanum.ttf'
 	
 	if not os.path.exists(font_path):
 		raise FileNotFoundError(f"Font file not found: {font_path}")
