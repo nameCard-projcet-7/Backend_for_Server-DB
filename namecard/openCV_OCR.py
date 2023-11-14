@@ -16,11 +16,16 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 		image = Image.fromarray(color_converted)
 	
 	if platform.system() == 'Darwin':
-		font_name = 'AppleGothic.ttf'
+		font_path = '/System/Library/Fonts/Supplemental/AppleGothic.ttf'
 	elif platform.system() == 'Windows':
-		font_name = 'malgun.ttf'
+		font_path = 'C:\\Windows\\Fonts\\malgun.ttf'
+	else:
+		font_path = '/path/to/default_font.ttf'
 	
-	image_font = ImageFont.truetype(font_name, font_size)
+	if not os.path.exists(font_path):
+		raise FileNotFoundError(f"Font file not found: {font_path}")
+	
+	image_font = ImageFont.truetype(font_path, font_size)
 	draw = ImageDraw.Draw(image)
 	draw.text((x, y), text, font=image_font, fill=color)
 	
@@ -30,11 +35,11 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 
 def get_result():
 	# OpenAI API 키 설정
-	api_key = "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"
+	api_key = "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"
 	openai.api_key = api_key
 	
 	# 이미지가 있는 폴더 경로 설정
-	image_folder = './media/images'
+	image_folder = '/Users/idogyeong/Desktop/명함 사진2'
 	
 	# 이미지 폴더에서 모든 이미지 파일 가져오기
 	list_of_files = glob.glob(os.path.join(image_folder, '*.*'))
@@ -98,6 +103,7 @@ def get_result():
 		
 		# 바운딩 박스 그리는 부분 제거
 		roi_img = put_text(roi_img, text, topLeft[0], topLeft[1] - 10, font_size=30)
+	# roi_img = cv2.putText(roi_img,text, (topLeft[0], topLeft[1] - 10), fontScale=30, color=(0,255,0))
 	
 	# 정보 추출 요청
 	response = openai.ChatCompletion.create(
@@ -124,7 +130,6 @@ def get_result():
 			key, value = line.split(":", 1)  # 첫 번째 ":"에서만 분할
 			info_dict[key.strip()] = value.strip()
 	
-	#result_json = json.dumps(info_dict)
+	# result_json = json.dumps(info_dict)
 	# 결과 출력 딕셔너리 형태로 반환
 	return json.dumps(info_dict, ensure_ascii=False)
-
