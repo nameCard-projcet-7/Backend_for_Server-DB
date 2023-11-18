@@ -1,3 +1,4 @@
+from django.core.serializers.json import DjangoJSONEncoder
 from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
@@ -23,8 +24,7 @@ class namecardAPI(APIView):
 
 class openCV_OCR_API(APIView):
 	def get(self, request):
-		return Response(get_result())
-	
+		return JsonResponse(get_result(),json_dumps_params={'ensure_ascii':False})
 class save_picture(APIView):
 	def post(self, request):
 		serializer = PostSerializer(data=request.data)

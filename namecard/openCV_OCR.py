@@ -35,7 +35,7 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 
 def get_result():
 	# OpenAI API 키 설정
-	api_key = "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"
+	api_key = "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"
 	openai.api_key = api_key
 	
 	# 이미지가 있는 폴더 경로 설정
@@ -130,6 +130,5 @@ def get_result():
 			key, value = line.split(":", 1)  # 첫 번째 ":"에서만 분할
 			info_dict[key.strip()] = value.strip()
 	
-	# result_json = json.dumps(info_dict)
-	# 결과 출력 딕셔너리 형태로 반환
-	return json.dumps(info_dict, ensure_ascii=False)
+	# 결과 반환
+	return info_dict
