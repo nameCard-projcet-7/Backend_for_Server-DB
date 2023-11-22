@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Namecard, Post
+from .models import Namecard, PostImage
 
 class NamecardSerializers(serializers.ModelSerializer):
 	class Meta:
@@ -8,5 +8,5 @@ class NamecardSerializers(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Post
-		field = ('title','text', 'image')
+		model = PostImage
+		field = '__all__'

@@ -9,7 +9,7 @@ class Namecard(models.Model):
 	Address = models.CharField(max_length=50)
 	Email = models.CharField(max_length=50)
 
-class Post(models.Model):
-	title = models.CharField(max_length=200)
-	text = models.TextField(null=True, default='')
-	image = models.ImageField(blank=True, null=True, upload_to='images')
+class PostImage(models.Model):
+	img = models.ImageField(upload_to='media/images/')
+	#file_dated = models.DateField(auto_now=True)
+	# image = models.ImageField(blank=True, null=True,upload_to='media/images')

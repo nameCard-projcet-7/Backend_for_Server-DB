@@ -1,14 +1,11 @@
-from django.core.serializers.json import DjangoJSONEncoder
 from rest_framework.response import Response
 from django.http import JsonResponse
-from rest_framework.decorators import api_view
-from .models import Namecard
 from .serializers import NamecardSerializers, PostSerializer
 from .openCV_OCR import *
-from rest_framework import viewsets, permissions, status
+from rest_framework import status, generics
 from rest_framework.views import APIView
-from rest_framework.generics import get_object_or_404
-from .models import Namecard, Post
+from .models import Namecard, PostImage
+from .forms import ImageUploadForm
 
 class namecardAPI(APIView):
 	def get(self, request):
@@ -25,7 +22,7 @@ class namecardAPI(APIView):
 class openCV_OCR_API(APIView):
 	def get(self, request):
 		return JsonResponse(get_result(),json_dumps_params={'ensure_ascii':False})
-class save_picture(APIView):
+class post_picture(APIView):
 	def post(self, request):
 		serializer = PostSerializer(data=request.data)
 		if serializer.is_valid():
