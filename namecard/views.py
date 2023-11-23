@@ -5,7 +5,6 @@ from .openCV_OCR import *
 from rest_framework import status, generics
 from rest_framework.views import APIView
 from .models import Namecard, PostImage
-from .forms import ImageUploadForm
 
 class namecardAPI(APIView):
 	def get(self, request):
