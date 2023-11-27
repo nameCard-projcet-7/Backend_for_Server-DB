@@ -10,6 +10,8 @@ class Namecard(models.Model):
 	Email = models.CharField(max_length=50)
 
 class PostImage(models.Model):
-	img = models.ImageField(upload_to='media/images/')
-	#file_dated = models.DateField(auto_now=True)
-	# image = models.ImageField(blank=True, null=True,upload_to='media/images')
+	title = models.TextField(max_length=200,null=True)
+	contents = models.CharField(max_length=50,null=True)
+	img = models.ImageField(upload_to='images/',null=True, blank=True)
+	uploaded_at = models.DateTimeField(auto_now=True)
+	

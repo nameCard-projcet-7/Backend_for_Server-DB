@@ -20,7 +20,8 @@ class namecardAPI(APIView):
 
 class openCV_OCR_API(APIView):
 	def get(self, request):
-		return JsonResponse(get_result(),json_dumps_params={'ensure_ascii':False})
+		img_path = './media/images/'
+		return JsonResponse(get_result(img_path),json_dumps_params={'ensure_ascii':False})
 class post_picture(APIView):
 	def post(self, request):
 		serializer = PostSerializer(data=request.data)

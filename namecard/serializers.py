@@ -9,4 +9,9 @@ class NamecardSerializers(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = PostImage
-		field = '__all__'
+		fields = '__all__'
+		
+# class PostForm(forms.ModelForm):
+# 	class Meta:
+# 		model = PostImage
+# 		fields = '__all__'

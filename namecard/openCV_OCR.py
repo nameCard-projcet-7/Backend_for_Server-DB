@@ -33,14 +33,14 @@ def put_text(image, text, x, y, color=(0, 255, 0), font_size=22):
 	opencv_image = cv2.cvtColor(numpy_image, cv2.COLOR_RGB2BGR)
 	return opencv_image
 
-def get_result():
+def get_result(img_path):
 	# OpenAI API 키 설정
-	api_key = "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"
+	api_key = "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"
 	openai.api_key = api_key
 	
 	# 이미지가 있는 폴더 경로 설정
-	image_folder = './media/images/'
-	
+	# image_folder = './media/images/'
+	image_folder = img_path
 	# 이미지 폴더에서 모든 이미지 파일 가져오기s
 	list_of_files = glob.glob(os.path.join(image_folder, '*.*'))
 	
