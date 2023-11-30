@@ -7,11 +7,8 @@ class NamecardSerializers(serializers.ModelSerializer):
 		fields = ('Company','Name','Role','PhoneNumber','Address','Email')
 
 class PostSerializer(serializers.ModelSerializer):
+	img = serializers.ImageField(use_url=True)
 	class Meta:
 		model = PostImage
-		fields = '__all__'
-		
-# class PostForm(forms.ModelForm):
-# 	class Meta:
-# 		model = PostImage
-# 		fields = '__all__'
+		fields = ('title','contents','img')
+
