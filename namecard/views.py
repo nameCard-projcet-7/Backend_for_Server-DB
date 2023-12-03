@@ -5,6 +5,8 @@ from .openCV_OCR import *
 from rest_framework import status
 from rest_framework.views import APIView
 from .models import Namecard, PostImage
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
 class namecardAPI(APIView):
 	def get(self, request):
@@ -35,3 +37,8 @@ class post_picture(APIView):
 			post_serializer.save()
 			return Response(post_serializer.data, status=status.HTTP_201_CREATED)
 		return Response(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#
+# @csrf_exempt
+# @require_POST
+# def post_image(request):
+# 	https://ssamko.tistory.com/54

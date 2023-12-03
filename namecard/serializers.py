@@ -10,5 +10,5 @@ class PostSerializer(serializers.ModelSerializer):
 	img = serializers.ImageField(use_url=True)
 	class Meta:
 		model = PostImage
-		fields = ('title','contents','img')
+		fields = ('title','img')
 

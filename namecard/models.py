@@ -8,9 +8,10 @@ class Namecard(models.Model):
 	PhoneNumber = models.CharField(max_length=50)
 	Address = models.CharField(max_length=50)
 	Email = models.CharField(max_length=50)
-
+	
 class PostImage(models.Model):
 	title = models.TextField(max_length=200,null=True)
 	img = models.ImageField(upload_to='images/',null=True, blank=True)
-	
+	def __str__(self):
+		return self.title
 	
